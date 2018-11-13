@@ -11,7 +11,7 @@ function calcLagrange() {
     let final = 0;
 
     for (let i = 0; i < matrix.length; i++) {
-        let out = { l:0,y:0 };
+        let out = { l: 0, y: 0 };
         let actualL = i;
         let result = 1;
         for (let x = 0; x < matrix.length; x++) {
@@ -26,21 +26,60 @@ function calcLagrange() {
         final += matrix[i][1] * result;
     }
     let str = "";
-    output.forEach( (v,i,a) => {
-        str += `L${i}: ${v.l.toFixed(2)}, y: ${v.y.toFixed(2)} \n` 
+    output.forEach((v, i, a) => {
+        str += `L${i}: ${v.l.toFixed(2)}, y: ${v.y.toFixed(2)} \n`
     });
 
-    alert(`${str} Resultado Final: ${final.toFixed(2)}`)
-
+    alert(`${str} Resultado Final: ${final.toFixed(2)}`);
 }
 
 /**
  * resolve interpolation with newton method
  * @param {*} params 
  */
-function calcNewton(input, table) {
-    console.log('%c Calc Newton', 'color:red;font-size:2em;');
-    throw "Not Implemented"
+function calcNewton() {
+    let values = this.getValues();
+    let px = this.getPx();
+    let matrix = this.arrayToMatrix(values, 2);
+
+    let objPolimer = interpolationNewton(matrix);
+    let finalResult = objPolimer.f(px)
+    let str = "";
+    objPolimer.stack.forEach((v, i, a) => {
+        str += `interacao${i}: ${v.toFixed(2)} \n`
+    })
+
+    alert(`${str} Resultado Final: ${finalResult.toFixed(2)}`)
+}
+
+function interpolationNewton(points) {
+    var n = points.length - 1, p;
+    let stackResponse = [];
+
+    p = function (i, j, x) {
+        if (i === j) {
+            return points[i][1];
+        }
+
+        stackResponse.push(((points[j][0] - x) * p(i, j - 1, x) +
+            (x - points[i][0]) * p(i + 1, j, x)) /
+            (points[j][0] - points[i][0]));
+
+        return ((points[j][0] - x) * p(i, j - 1, x) +
+            (x - points[i][0]) * p(i + 1, j, x)) /
+            (points[j][0] - points[i][0]);
+    };
+
+    return {
+        f: function (x) {
+            if (points.length === 0) {
+                return 0;
+            }
+
+            return p(0, n, x);
+        },
+        stack: stackResponse
+    }
 }
 
 /**
