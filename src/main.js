@@ -1,3 +1,4 @@
+
 /**
  * resolve interpolation with method lagrange
  * @param {*} params 
@@ -6,9 +7,11 @@ function calcLagrange() {
     let values = this.getValues();
     let px = this.getPx();
     let matrix = this.arrayToMatrix(values, 2);
+    let output = [];
     let final = 0;
 
     for (let i = 0; i < matrix.length; i++) {
+        let out = { l:0,y:0 };
         let actualL = i;
         let result = 1;
         for (let x = 0; x < matrix.length; x++) {
@@ -17,10 +20,17 @@ function calcLagrange() {
                 result *= resultL;
             }
         }
+        out.l = matrix[i][1] * result;
+        out.y = matrix[actualL][0];
+        output.push(out);
         final += matrix[i][1] * result;
     }
+    let str = "";
+    output.forEach( (v,i,a) => {
+        str += `L${i}: ${v.l.toFixed(2)}, y: ${v.y.toFixed(2)} \n` 
+    });
 
-    alert(`Resultado Final: ${final.toFixed(2)}`)
+    alert(`${str} Resultado Final: ${final.toFixed(2)}`)
 
 }
 
