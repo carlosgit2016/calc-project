@@ -25,25 +25,21 @@
 
     <div class="row center">
         <div class="col s12 m6 offset-m3 offset-l3">
-            <div class="card blue-grey ligthen-1 z-depth-4 hoverable">
-                <div class="card-content white-text center">
+            <div class="card   hoverable">
+                <div class="card-content  center">
 
-                    <span>Entrada</span>
+                    <span>P(x)</span>
                     <div class="row">
                         <form class="col s12 offset-l3">
                             <div class="row">
                                 <div class="input-field col s3">
-                                    <input id="first_name" type="number" class="validate">
-                                </div>
-
-                                <div class="input-field col s3">
-                                    <input id="last_name" type="number" class="validate">
+                                    <input id="px" type="number" class="validate">
                                 </div>
                         </form>
                     </div>
 
                     <span class="card-title">Tabela</span>
-                    <table id="mainTable">
+                    <table id="mainTable" class="highlight">
                         <thead>
                             <tr>
                                 <th>i</th>
@@ -54,52 +50,52 @@
 
                         <tbody>
                             <tr>
-                                <td><input type="number" name="" id=""></td>
-                                <td><input type="number" name="" id=""></td>
-                                <td><input type="number" name="" id=""></td>
-                            </tr>
-                            <tr>
-                                <td><input type="number" name="" id=""></td>
+                                <td><h5>0</h5></td>
                                 <td><input type="number" name="" id=""></td>
                                 <td><input type="number" name="" id=""></td>
                             </tr>
                             <tr>
-                                <td><input type="number" name="" id=""></td>
-                                <td><input type="number" name="" id=""></td>
-                                <td><input type="number" name="" id=""></td>
-                            </tr>
-                            <tr>
-                                <td><input type="number" name="" id=""></td>
+                                <td><h5>1</h5></td>
                                 <td><input type="number" name="" id=""></td>
                                 <td><input type="number" name="" id=""></td>
                             </tr>
                             <tr>
-                                <td><input type="number" name="" id=""></td>
-                                <td><input type="number" name="" id=""></td>
-                                <td><input type="number" name="" id=""></td>
-                            </tr>
-                            <tr>
-                                <td><input type="number" name="" id=""></td>
+                                <td><h5>2</h5></td>
                                 <td><input type="number" name="" id=""></td>
                                 <td><input type="number" name="" id=""></td>
                             </tr>
                             <tr>
-                                <td><input type="number" name="" id=""></td>
-                                <td><input type="number" name="" id=""></td>
-                                <td><input type="number" name="" id=""></td>
-                            </tr>
-                            <tr>
-                                <td><input type="number" name="" id=""></td>
+                                <td><h5>3</h5></td>
                                 <td><input type="number" name="" id=""></td>
                                 <td><input type="number" name="" id=""></td>
                             </tr>
                             <tr>
-                                <td><input type="number" name="" id=""></td>
+                                <td><h5>4</h5></td>
                                 <td><input type="number" name="" id=""></td>
                                 <td><input type="number" name="" id=""></td>
                             </tr>
                             <tr>
+                                <td><h5>5</h5></td>
                                 <td><input type="number" name="" id=""></td>
+                                <td><input type="number" name="" id=""></td>
+                            </tr>
+                            <tr>
+                                <td><h5>6</h5></td>
+                                <td><input type="number" name="" id=""></td>
+                                <td><input type="number" name="" id=""></td>
+                            </tr>
+                            <tr>
+                                <td><h5>7</h5></td>
+                                <td><input type="number" name="" id=""></td>
+                                <td><input type="number" name="" id=""></td>
+                            </tr>
+                            <tr>
+                                <td><h5>8</h5></td>
+                                <td><input type="number" name="" id=""></td>
+                                <td><input type="number" name="" id=""></td>
+                            </tr>
+                            <tr>
+                                <td><h5>9</h5></td>
                                 <td><input type="number" name="" id=""></td>
                                 <td><input type="number" name="" id=""></td>
                             </tr>
@@ -109,7 +105,8 @@
                 <div class="card-action">
                     <a class="waves-effect waves-light btn" onclick="calcLagrange()">La grange</a>
                     <a class="waves-effect waves-light btn" onclick="calcNewton()">Newton</a>
-                    <a class="waves-effect waves-light btn" onclick="clearTable()">Clear</a>
+                    <a class="waves-effect waves-light btn" onclick="populate()">Popular</a>
+                    <a class="waves-effect waves-light btn" onclick="clearTable()">Limpar</a>
                 </div>
             </div>
         </div>
